@@ -8,7 +8,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
     if @user.save
-      render @user
+      render json: @user, status: 201
     end
   end
 end
