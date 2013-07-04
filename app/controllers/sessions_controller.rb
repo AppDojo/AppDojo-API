@@ -11,21 +11,22 @@ class SessionsController < Devise::SessionsController
     if resource.valid_password?(params[:password])
       sign_in(:user, resource)
       resource.ensure_authentication_token!
-      render :json=> {:success=>true, :auth_token=>resource.authentication_token, :email=>resource.email}
+      render :json=> {success: true, auth_token: resource.authentication_token, user: resource}
       return
     end
     invalid_login_attempt
   end
 
   def destroy
-    resource = User.find_for_database_authentication(:email => params[:email])
+    resource = User.find_by_authentication_token(params[:auth_token] || request.headers['X-AUTH-TOKEN'])
     resource.authentication_token = nil
     resource.save
-    render json: { success: true }, status: :ok
+    sign_out(resource_name)
+    render json: {success: true}.to_json, status: :ok
   end
 
   protected
     def invalid_login_attempt
-      render json: {success: false, message: "Error with your login or password"}, status: :unauthorized
+      render json: {success: false, message: "Invalid login or password."}, status: :unauthorized
     end
 end
