@@ -11,6 +11,9 @@ gem 'active_model_serializers'
 gem 'pg'
 
 gem 'devise', '3.0.0.rc'
+gem 'devise_header_token'
+
+gem 'awesome_print'
 
 # To use ActiveModel has_secure_password
 #gem 'bcrypt-ruby', '~> 3.0.0'

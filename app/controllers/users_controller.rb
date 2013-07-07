@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_filter :authenticate_user!, except: [:create]
+  before_action :authenticate_user!, except: [:create]
   def index
     @user = User.all
     render json: @user

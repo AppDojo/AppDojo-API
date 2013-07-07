@@ -56,7 +56,7 @@ Devise.setup do |config|
   # :token         = Support basic authentication with token authentication key
   # :token_options = Support token authentication with options as defined in
   #                  http://api.rubyonrails.org/classes/ActionController/HttpAuthentication/Token.html
-  # config.http_authenticatable = false
+  #config.http_authenticatable = false
   config.http_authenticatable = true
 
   # If http headers should be returned for AJAX requests. True by default.
@@ -75,7 +75,7 @@ Devise.setup do |config|
   # Notice that if you are skipping storage for all authentication paths, you
   # may want to disable generating routes to Devise's sessions controller by
   # passing :skip => :sessions to `devise_for` in your config/routes.rb
-  config.skip_session_storage = [:http_auth]
+  config.skip_session_storage = [:http_auth, :token_auth]
 
   # ==> Configuration for :database_authenticatable
   # For bcrypt, this is the cost for hashing the password and defaults to 10. If
@@ -187,7 +187,8 @@ Devise.setup do |config|
 
   # ==> Configuration for :token_authenticatable
   # Defines name of the authentication token params key
-  config.token_authentication_key = :auth_token
+  config.token_authentication_key = 'X-AUTH-TOKEN'
+  #config.token_authentication_key = :auth_token
 
   # ==> Scopes configuration
   # Turn scoped views on. Before rendering "sessions/new", it will first check for
@@ -248,7 +249,5 @@ Devise.setup do |config|
   # When using omniauth, Devise cannot automatically set Omniauth path,
   # so you need to do it manually. For the users scope, it would be:
   # config.omniauth_path_prefix = "/my_engine/users/auth"
-
-  config.skip_session_storage = [:http_auth, :token_auth]
 
 end
