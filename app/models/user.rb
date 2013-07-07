@@ -9,4 +9,7 @@ class User < ActiveRecord::Base
 
   validates :email, uniqueness: true
   validates :email, :first_name, :last_name, presence: true
+
+  has_many :check_ins
+  has_many :meetings, through: :check_ins
 end
