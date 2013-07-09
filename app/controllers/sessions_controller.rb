@@ -1,4 +1,6 @@
 class SessionsController < Devise::SessionsController
+  include ActionController::MimeResponds
+  include ActionController::ImplicitRender
   prepend_before_filter :require_no_authentication, only: [:create]
   include Devise::Controllers::Helpers
 
@@ -11,7 +13,7 @@ class SessionsController < Devise::SessionsController
     if resource.valid_password?(params[:password])
       sign_in(:user, resource)
       resource.ensure_authentication_token!
-      render :json=> {success: true, auth_token: resource.authentication_token, user: resource}
+      render json: resource, serializer: SessionSerializer, root: "user"
       return
     end
     invalid_login_attempt
