@@ -27,6 +27,7 @@ class RegistrationsController < Devise::RegistrationsController
   protected
 
     def configure_permitted_parameters
+      puts "PARAMS #{params.inspect}"
       devise_parameter_sanitizer.for(:sign_up) do |u|
         u.permit(:first_name, :last_name, :email, :password, :password_confirmation)
       end
