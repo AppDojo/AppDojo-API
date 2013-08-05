@@ -21,4 +21,3 @@ private
     params.require(:check_in).permit(:user_id, :meeting_id)
   end
 end
-end
