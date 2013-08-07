@@ -14,4 +14,6 @@ class User < ActiveRecord::Base
 
   has_many :check_ins
   has_many :meetings, through: :check_ins
+
+  has_many :hosted_meetings, class_name: Meeting, foreign_key: 'organizer_id'
 end
