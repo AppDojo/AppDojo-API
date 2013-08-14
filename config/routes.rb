@@ -1,7 +1,8 @@
 AppDojoApi::Application.routes.draw do
 
-  root to: 'products#index'
+  root to: 'welcome#hello'
 
+  get '/ping' => 'welcome#ping'
 
   scope :api, path: 'api', default: :json do
     scope :v1, path: 'v1' do
