@@ -1,6 +1,6 @@
 language: ruby
 before_script:
-  - psql -c "create database AppDojo-API_test;" -U postgres
+  - psql -c 'create database "AppDojo-API_test";' -U postgres
 rvm:
   - 2.0.0
 
