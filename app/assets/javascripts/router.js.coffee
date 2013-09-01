@@ -1,10 +1,11 @@
 # For more information see: http://emberjs.com/guides/routing/
 
 Dojo.Router.reopen
-location: 'history'
+  location: 'history'
 
 Dojo.Router.map ->
   @resource 'users'
+  @resource 'about'
 
 Dojo.UsersRoute = Ember.Route.extend
   model: ->
