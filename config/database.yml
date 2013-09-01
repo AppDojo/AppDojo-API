@@ -48,7 +48,7 @@ test:
   encoding: unicode
   database: AppDojo-API_test
   pool: 5
-  username: adminuser
+  username: postgres
   password:
 
 production:
