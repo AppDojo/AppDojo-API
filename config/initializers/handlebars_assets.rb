@@ -1,3 +1,1 @@
-if defined?(HandlebarAssets)
-  HandlebarAssets::Config.ember = true
-end
+HandlebarsAssets::Config.ember = true
