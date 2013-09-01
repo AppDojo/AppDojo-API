@@ -4,7 +4,7 @@
       "type": "file",
       "location": "frontend",
       "installToPath": "public",
-      "filesToDeploy":["js/*.js", "css/*.css"]
+      "filesToDeploy":["js/*.js", "css/*.css", "template/*.js"]
     }
   ]
 }

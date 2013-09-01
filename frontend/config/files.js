@@ -19,7 +19,7 @@ module.exports = require(process.env['LINEMAN_MAIN']).config.extend('files', {
       "vendor/js/jquery-1.9.1.js",
       "vendor/js/bootstrap.js",
       "vendor/js/handlebars-1.0.0.js",
-      "vendor/js/ember-1.0.0-rc.8.js",
+      "vendor/js/ember-1.0.0.js",
       "vendor/js/ember-data.js",
       "vendor/js/**/*.js"
     ],
