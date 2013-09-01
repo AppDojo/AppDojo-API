@@ -1,8 +1,5 @@
 AppDojoApi::Application.routes.draw do
-
-  root to: 'welcome#hello'
-
-  get '/ping' => 'welcome#ping'
+  require 'dojo_web'
 
   scope :api, path: 'api', default: :json do
     scope :v1, path: 'v1' do
@@ -17,4 +14,11 @@ AppDojoApi::Application.routes.draw do
     post 'api/v1/users/sign_in' => 'sessions#create', as: :sign_in
     delete 'api/v1/users/sign_out' => 'sessions#destroy', as: :sign_out
   end
+
+  mount DojoWeb => "/"
+
+  #root to: 'welcome#hello'
+  #
+  #get '/ping' => 'welcome#ping'
+
 end

@@ -1,0 +1,10 @@
+{
+  "linemanApps": [
+    {
+      "type": "file",
+      "location": "frontend",
+      "installToPath": "public",
+      "filesToDeploy":["js/*.js", "css/*.css"]
+    }
+  ]
+}
