@@ -3,4 +3,8 @@ before_script:
   - psql -c 'create database "AppDojo-API_test";' -U postgres
 rvm:
   - 2.0.0
-
+notifications:
+  email: false
+  campfire:
+    rooms:
+      secure: rmG9XIBEnZQnFpltRaDnnM6f5YyHxMou4/nhRjHyacJUFjkjD7O3TB1Rr+MnkBa/bUrJZA7BHB1NQOjVtBw5Ps+mrvSmnjmst7FbgUKQSBUOJXH5Pw4s+AHZBpjyc5Poobe16RlldlU5ocCYpHbN5xZle4E9mqTqZ5drYtFPNt0=
