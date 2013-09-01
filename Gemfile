@@ -29,6 +29,16 @@ group :test do
 	gem 'database_cleaner'
 end
 
+group :assets do
+  gem 'sass-rails'
+  gem 'coffee-rails'
+  gem 'uglifier'
+  gem 'handlebars_assets'
+end
+
+group :development do
+  gem 'quiet_assets'
+end
 
 
 

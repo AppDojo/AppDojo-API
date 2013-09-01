@@ -1,7 +1,20 @@
 AppDojoApi::Application.routes.draw do
-  require 'dojo_web'
+  class FormatTest
+    attr_accessor :mime_type
 
-  scope :api, path: 'api', default: :json do
+    def initialize(format)
+      @mime_type = Mime::Type.lookup_by_extension(format)
+    end
+
+    def matches?(request)
+      request.format == mime_type
+    end
+  end
+
+
+
+
+  scope :api, path: 'api', default: :json, constraints: FormatTest.new(:json) do
     scope :v1, path: 'v1' do
       devise_for :users, controllers: {sessions: 'sessions', registrations: 'registrations'}, skip: [:sessions]
       resources :check_ins, except: [:new, :edit]
@@ -15,10 +28,8 @@ AppDojoApi::Application.routes.draw do
     delete 'api/v1/users/sign_out' => 'sessions#destroy', as: :sign_out
   end
 
-  mount DojoWeb => "/"
-
-  #root to: 'welcome#hello'
-  #
-  #get '/ping' => 'welcome#ping'
-
+  scope module: 'web' do
+    get '*foo', to: 'dojo#index', constraints: FormatTest.new(:html)
+    get '/', to: 'dojo#index', constraints: FormatTest.new(:html)
+  end
 end
