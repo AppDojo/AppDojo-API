@@ -1,1 +1,3 @@
-HandlebarsAssets::Config.ember = true
+if "assets" == ENV["RAILS_GROUPS"] || ["development", "test"].include?(ENV["RAILS_ENV"])
+  HandlebarsAssets::Config.ember = true
+end
