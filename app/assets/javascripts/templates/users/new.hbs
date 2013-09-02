@@ -1,0 +1,27 @@
+<h1>Create {{fullName}}</h1>
+<form role="form">
+  <div class="form-group">
+    <label {{bindAttr for="firstNameField.elementId"}}>First Name</label>
+    {{view Ember.TextField valueBinding='firstName' placeholder="First Name" class="form-control" name='first_name' viewName='firstNameField'}}
+  </div>
+  <div class="form-group">
+    <label {{bindAttr for="lastNameField.elementId"}}>Last Name</label>
+    {{view Ember.TextField valueBinding="lastName" placeholder="Last Name" class="form-control" name="last_name" viewName="lastNameField"}}
+  </div>
+  <div class="form-group">
+    <label {{bindAttr for="emailField.elementId"}}>Email</label>
+      {{view Ember.TextField valueBinding="email" type="email" class="form-control" placeholder="Email..." name="email" viewName="emailField"}}
+  </div>
+  <div class="form-group">
+    <label {{bindAttr for="passwordField.elementId"}}>Password</label>
+      {{view Ember.TextField type="password" valueBinding="password" class="form-control" placeholder="Password..." name="password" viewName="passwordField"}}
+  </div>
+  <div class="form-group">
+    <label {{bindAttr for="passwordConfirmationField.elementId"}}>Password Confirmation</label>
+      {{view Ember.TextField type="password" valueBinding="passwordConfirmation" class="form-control" placeholder="Password confirmation..." name="password_confirmation" viewName="passwordConfirmationField"}}
+  </div>
+  <a href='#' {{action save}} class='btn btn-success'>Submit</a>
+</form>
+<div class='page-header'></div>
+
+<a href='#' {{action cancel}} class='btn btn-inverse'>Cancel</a>

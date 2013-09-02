@@ -28,5 +28,6 @@ module AppDojoApi
     config.secret_key_base = 'whoopsie'
 
     #config.assets.initialize_on_precompile = true
+    config.filter_parameters += [:password, :password_confirmation]
   end
 end

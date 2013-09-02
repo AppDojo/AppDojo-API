@@ -1,19 +1,22 @@
 <div class="container-fluid">
   <div class="row-fluid">
-    <div class="span3">
-      <table class="table">
+    <div class="col-md-3">
+      <table class="table table-responsive">
         <thead>
         <tr><th>Users</th></tr>
         </thead>
           {{#each model}}
-            <tr><td>
-              <a href="#">{{first_name}} {{last_name}} <small class="text-muted">{{email}}</small></a>
-            </td></tr>
+            <tr>
+              <td>
+                {{#linkTo "users.show" this}}{{fullName}}{{/linkTo}}
+              </td>
+            </tr>
           {{/each}}
       </table>
+      {{#linkTo 'users.new' class="btn btn-primary"}}Create{{/linkTo}}
     </div>
-    <div class="span9">
-
+    <div class="col-md-9">
+        {{outlet}}
     </div>
   </div>
 </div>

@@ -11,9 +11,6 @@ AppDojoApi::Application.routes.draw do
     end
   end
 
-
-
-
   scope :api, path: 'api', default: :json, constraints: FormatTest.new(:json) do
     scope :v1, path: 'v1' do
       devise_for :users, controllers: {sessions: 'sessions', registrations: 'registrations'}, skip: [:sessions]
